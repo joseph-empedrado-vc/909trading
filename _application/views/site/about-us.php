@@ -5,9 +5,6 @@
 
             <div class="item active">
                 <img  style="width:100%;" src="<?php echo base_url().'assets/images/isuzu-truck-1.png'; ?>" alt="house 3">
-                <img  style="width:100%;" src="<?php echo base_url().'assets/images/isuzu-truck-1.png'; ?>" alt="house 3">
-                <img  style="width:100%;" src="<?php echo base_url().'assets/images/isuzu-truck-1.png'; ?>" alt="house 3">
-
             </div>
 
         </div>
