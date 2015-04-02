@@ -1,7 +1,4 @@
 <?php $this->load->view('embed_common/_inc_slides_trucks'); ?>
-<?php var_dump($this->session->get_userdata());
-
-?>
 <div class="container">
     <h2 class="page-main-title">Home</h2>
     <div class="row">
