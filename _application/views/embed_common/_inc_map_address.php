@@ -31,9 +31,9 @@
 
                             '<h4>909Trading</h4>'+
                             '<div id="bodyContent">'+
-                            '<p>Blk. 15 Lot 1 Magdalena Homes Subd. ,</p>'+
+                            '<p>222 Argonaut Highway,</p>'+
 
-                            '<p>Sto. Tomas Subic, Zambales Philippines</p>'+
+                            '<p>Subic Bay Freeport Zone 2222 Philippine</p>'+
                             '</div>'+
                             '</div>';
 
