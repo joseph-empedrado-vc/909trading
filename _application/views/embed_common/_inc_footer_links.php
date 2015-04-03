@@ -34,9 +34,8 @@
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><a href="<?=_site_root_url;?>how-to-get-there">How to get there</a></li>
-                                <li><a href="/terms-of-purchase">Terms of purchase</a></li>
-                                <li><a href="/privacy">Financing</a></li>
-                                <li><a href="waranty-policy">Warranty Policy</a></li>
+                                <li><a href="<?=_site_root_url;?>terms-of-purchase">Terms of purchase</a></li>
+                                <li><a href="<?=_site_root_url;?>financing">Financing</a></li>
                             </ul>
                         </div>
                     </div>

@@ -76,6 +76,23 @@ class Site extends MY_Controller {
 		$this->load->view('_core/template',$data);
 	}
 
+	public function financing(){
+		$data['page_title'][]     =   '909Trading - Financing Partners';
+
+		$data['script']['css'][] = 'bootstrap.min.css';
+		$data['script']['css'][] = 'bootstrap-yeti.min.css';
+		$data['script']['css'][] = 'style.css';
+
+		$data['script']['js-head'][] = 'jquery-1.11.0.min.js';
+		$data['script']['js-body'][] = 'bootstrap.min.js';
+		$data['script']['js-body'][] = 'jquery.validate.js';
+
+		$data['content'] = 'site/financing.php';
+
+		$this->load->view('_core/template',$data);
+
+	}
+
 	public function how_to_get_there(){
 		$data['page_title'][]     =   '909Trading - Contact Us';
 

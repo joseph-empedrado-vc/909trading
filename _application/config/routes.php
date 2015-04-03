@@ -70,6 +70,10 @@ $route['contact-us'] = "site/contact";
 $route['how-to-get-there/(:any)'] = "site/how_to_get_there/$1";
 $route['how-to-get-there'] = "site/how_to_get_there";
 
+$route['financing/(:any)'] = "site/financing/$1";
+$route['financing'] = "site/financing";
+
+
 $route['send_message/(:any)'] = "site/send_message/$1";
 $route['send_message'] = "site/send_message";
 
