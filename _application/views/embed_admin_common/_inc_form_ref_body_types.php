@@ -36,7 +36,7 @@
                             <input id="send" type="submit" class="btn btn-primary btn-block" value="Save" style="height: 40px;">
                         </div>
                         <div class="col-md-6">
-                            <input id="clear" type="reset" class="btn btn-default btn-block" value="Clear Form" style=" height: 40px;">
+                            <input id="clear" type="reset" class="btn btn-default btn-block" value="Clear" style=" height: 40px;">
                         </div>
                     </div>
 

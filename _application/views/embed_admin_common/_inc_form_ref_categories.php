@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
 
-                <form id="form_makers" action="<?=_index_url;?>form/validate_categories" method="post" class="form-horizontal" role="form" novalidate="novalidate">
+                <form id="form_categories" action="<?=_index_url;?>form/validate_categories" method="post" class="form-horizontal" role="form" novalidate="novalidate">
 
                     <div id="FLD_name_holder" class="form-group">
                         <label for="FLD_name" class="col-md-3 control-label">Name</label>
@@ -33,10 +33,10 @@
                     ?>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <input id="send" type="submit" class="btn btn-primary btn-block" value="Send" style="height: 40px;">
+                            <input id="send" type="submit" class="btn btn-primary btn-block" value="Save" style="height: 40px;">
                         </div>
                         <div class="col-md-6">
-                            <input id="clear" type="reset" class="btn btn-default btn-block" value="Clear Form" style=" height: 40px;">
+                            <input id="clear" type="reset" class="btn btn-default btn-block" value="Clear" style=" height: 40px;">
                         </div>
                     </div>
 
