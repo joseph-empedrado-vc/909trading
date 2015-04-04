@@ -73,6 +73,9 @@ $route['how-to-get-there'] = "site/how_to_get_there";
 $route['financing/(:any)'] = "site/financing/$1";
 $route['financing'] = "site/financing";
 
+$route['admin/form/(:any)'] = "form/$1";
+$route['admin/form'] = "form/index";
+
 
 $route['send_message/(:any)'] = "site/send_message/$1";
 $route['send_message'] = "site/send_message";

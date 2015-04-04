@@ -56,14 +56,19 @@ class System extends MY_Controller {
             $this->load->view('_core/template',$data);
         }
 
-
     }
 
+    public function logout(){
+        session_destroy();
+        redirect(base_url().'index.php/admin', 'refresh');
+    }
 
 
     public function validate_login(){
 
-        if(is_posted()===false){return;}
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin', 'refresh');
+        }
 
         $post = do_post();
 
@@ -78,7 +83,7 @@ class System extends MY_Controller {
             redirect($this->input->post('_return'), 'refresh');
         }else
         {
-            $this->session->set_flashdata('error_message',  '<p>Username / Password don\'t match</p>');
+            $this->session->set_flashdata('error_message',  '<p>Invalid Username Password</p>');
 
             redirect($this->input->post('_return'), 'refresh');
         }

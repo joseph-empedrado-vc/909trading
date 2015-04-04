@@ -36,6 +36,7 @@ if( ! function_exists('user_friendly_str')){
 
         $new_url = strtolower(str_replace('-',' ',$url));
         $new_url = strtolower(str_replace('/',' ',$new_url));
+        $new_url = strtolower(str_replace('_',' ',$new_url));
         $user_friendly_str = strtolower(str_replace('%20',' ',$new_url));
         return $user_friendly_str;
 
@@ -313,6 +314,17 @@ if ( ! function_exists('validate_token')) {
     }
 }
 
+if ( ! function_exists('is_signed_in')) {
+    function is_signed_in()
+    {
+        $CI =& get_instance();
+        if ($CI->session->userdata('signed_in')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 if ( ! function_exists('printR'))
 {
