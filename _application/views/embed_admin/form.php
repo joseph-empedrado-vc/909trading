@@ -23,10 +23,11 @@
             <?php } ?>
 
             <?php $this->load->view($embed_form); ?>
-        </div>
-        <div class="col-md-6">
-            <?php $this->load->view('embed_user/_inc_user_profile'); ?>
             <?php $this->load->view('embed_admin_common/_inc_menu_reference'); ?>
         </div>
+        <div class="col-md-6">
+            <?php $this->load->view('embed_admin_common/_inc_list_ref_makers'); ?>
+        </div>
     </div>
+
 </div>

@@ -11,10 +11,10 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <button type="button" class="btn btn-primary btn-block">Add New Stock</button>
+                        <a href="<?=_index_url;?>admin/form/stocks/new" type="button" class="btn btn-primary btn-block">Add New Stock</a>
                     </div>
                     <div class="col-md-4">
-                        <button type="button" class="btn btn-primary btn-block">View Stocks List</button>
+                        <a href="<?=_index_url;?>admin/form/stocks/edit" type="button" class="btn btn-primary btn-block">View Stocks List</a>
                     </div>
                 </div>
             </div>

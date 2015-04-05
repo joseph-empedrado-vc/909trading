@@ -74,6 +74,7 @@ $route['financing/(:any)'] = "site/financing/$1";
 $route['financing'] = "site/financing";
 
 $route['admin/form/(:any)'] = "form/$1";
+$route['admin/form/(:any)/(:any)'] = "form/$1/$1";
 $route['admin/form'] = "form/index";
 
 

@@ -213,6 +213,14 @@ if( ! function_exists('do_post')){
 
         if(validate_token()===FALSE){
             $return['msg'] = 'Invalid token please refresh your browser or do login again.';
+
+            $CI->session->set_flashdata('error_message',  '<p>Invalid token please refresh your browser or do login again.</p>');
+            if($CI->input->post('_return')){
+                redirect($CI->input->post('_return'), 'refresh');
+            }else{
+                redirect(base_url(), 'refresh');
+            }
+
             return $return;
         };
 

@@ -72,6 +72,12 @@ class System extends MY_Controller {
 
         $post = do_post();
 
+        if(isset($post['msg'])){
+            $this->session->set_flashdata('error_message',  '<p>'.$post['msg'].'</p>');
+            redirect($this->input->post('_return'), 'refresh');
+            return;
+        }
+
         $this->load->model('Users_model','users');
         $login_result = $this->users->validate_login($post);
 
@@ -79,12 +85,10 @@ class System extends MY_Controller {
         {
             $login_result['signed_in'] = true;
             $this->session->set_userdata($login_result);
-
             redirect($this->input->post('_return'), 'refresh');
         }else
         {
             $this->session->set_flashdata('error_message',  '<p>Invalid Username Password</p>');
-
             redirect($this->input->post('_return'), 'refresh');
         }
 
