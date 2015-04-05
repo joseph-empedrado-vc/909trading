@@ -26,7 +26,7 @@
             <?php $this->load->view('embed_admin_common/_inc_menu_reference'); ?>
         </div>
         <div class="col-md-6">
-            <?php $this->load->view('embed_admin_common/_inc_list_ref_makers'); ?>
+            <?php $this->load->view('embed_admin_common/_inc_list_ref_'._url_3); ?>
         </div>
     </div>
 

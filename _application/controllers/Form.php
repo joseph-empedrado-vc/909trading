@@ -111,11 +111,18 @@ class Form extends MY_Controller {
 
         $data['script']['css'][] = 'bootstrap.min.css';
         $data['script']['css'][] = 'bootstrap-yeti.css';
+        $data['script']['css'][] = 'jquery.dataTables.min.css';
         $data['script']['css'][] = 'style.css';
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
+        $data['script']['js-head'][] = 'jquery.dataTables.js';
+        $data['script']['js-head'][] = 'jquery.form.js';
+
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
+
+        $this->load->model('References_model','ref');
+        $data['body_types'] =  $this->ref->view_list('ref_body_types');
 
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_ref_body_types';
@@ -125,17 +132,56 @@ class Form extends MY_Controller {
 
     }
 
+    public function delete_body_types (){
+
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin', 'refresh');
+        }
+
+        $post = do_post();
+
+        if($post['ID'] == '' || !isset($post['ID'])){
+            return;
+        }
+
+        $this->load->model('References_model','ref');
+
+        $delete_data = $this->ref->delete_data('ref_body_types',$post['ID']);
+
+        if($delete_data)
+        {
+            $this->session->set_flashdata('info_message',  '<p>Your data has been successfully deleted</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }else
+        {
+            $this->session->set_flashdata('error_message',  '<p>Data was not deleted</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }
+
+        return;
+
+    }
+
     public function categories(){
 
         $data['page_title'][]     =   'Form - 909Trading ';
 
         $data['script']['css'][] = 'bootstrap.min.css';
         $data['script']['css'][] = 'bootstrap-yeti.css';
+        $data['script']['css'][] = 'jquery.dataTables.min.css';
         $data['script']['css'][] = 'style.css';
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
+        $data['script']['js-head'][] = 'jquery.dataTables.js';
+        $data['script']['js-head'][] = 'jquery.form.js';
+
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
+
+        $this->load->model('References_model','ref');
+        $data['categories'] =  $this->ref->view_list('ref_categories');
 
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_ref_categories';
@@ -146,6 +192,39 @@ class Form extends MY_Controller {
 
 
     }
+
+    public function delete_categories (){
+
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin', 'refresh');
+        }
+
+        $post = do_post();
+
+        if($post['ID'] == '' || !isset($post['ID'])){
+            return;
+        }
+
+        $this->load->model('References_model','ref');
+
+        $delete_data = $this->ref->delete_data('ref_categories',$post['ID']);
+
+        if($delete_data)
+        {
+            $this->session->set_flashdata('info_message',  '<p>Your data has been successfully deleted</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }else
+        {
+            $this->session->set_flashdata('error_message',  '<p>Data was not deleted</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }
+
+        return;
+
+    }
+
 
     public function stocks(){
 
