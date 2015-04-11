@@ -161,7 +161,9 @@ body {
     color: #e99002;
     border-color: #e99002;
 }
-
+.bg-white{
+    background-color: #FFFFFF !important;
+}
 .non-style-list{
     list-style: none outside none;
 }

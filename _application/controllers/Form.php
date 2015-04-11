@@ -58,6 +58,7 @@ class Form extends MY_Controller {
 
         $data['script']['js-body'][] = 'jquery.validate.js';
 
+        $data['list_content'] = 'ref_makers';
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_ref_makers';
 
@@ -124,6 +125,7 @@ class Form extends MY_Controller {
         $this->load->model('References_model','ref');
         $data['body_types'] =  $this->ref->view_list('ref_body_types');
 
+        $data['list_content'] = 'ref_body_types';
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_ref_body_types';
 
@@ -183,6 +185,7 @@ class Form extends MY_Controller {
         $this->load->model('References_model','ref');
         $data['categories'] =  $this->ref->view_list('ref_categories');
 
+        $data['list_content'] = 'ref_categories';
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_ref_categories';
 
@@ -244,12 +247,28 @@ class Form extends MY_Controller {
 
         $data['script']['css'][] = 'bootstrap.min.css';
         $data['script']['css'][] = 'bootstrap-yeti.css';
+        $data['script']['css'][] = 'jquery.dataTables.min.css';
         $data['script']['css'][] = 'style.css';
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
+        $data['script']['js-head'][] = 'jquery.dataTables.js';
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
 
+        $data['ref_list_type'] = 'for_stock_form';
+        $this->load->model('References_model','ref');
+        $this->load->model('stocks_model','stock');
+
+        //load Makers / Manufacturers
+        $data['makers'] =  $this->ref->view_list('ref_makers');
+        //load Categories
+        $data['categories'] =  $this->ref->view_list('ref_categories');
+        //load Body Types
+        $data['body_types'] =  $this->ref->view_list('ref_body_types');
+        //load Stocks
+        $data['stocks'] =  $this->stock->view_list('vw_stocks');
+
+        $data['list_content'] = 'stocks';
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_stocks_new';
 
@@ -257,6 +276,8 @@ class Form extends MY_Controller {
 
 
     }
+
+
 
     private function _edit_stock(){
 
@@ -328,6 +349,34 @@ class Form extends MY_Controller {
         $this->load->model('References_model','ref');
 
         $add_data = $this->ref->add_data($post,'ref_categories');
+
+        if($add_data)
+        {
+            $this->session->set_flashdata('info_message',  '<p>Your data has been successfully saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }else
+        {
+            $this->session->set_flashdata('error_message',  '<p>Data was not saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }
+
+        return;
+    }
+
+
+    public function validate_stocks(){
+
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+        }
+
+        $post = do_post();
+
+        $this->load->model('Stocks_model','stocks');
+
+        $add_data = $this->stocks->add_data($post,'stocks');
 
         if($add_data)
         {
