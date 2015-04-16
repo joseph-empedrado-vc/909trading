@@ -297,7 +297,7 @@ class Form extends MY_Controller {
         if(is_posted()===false){
             redirect(base_url().'index.php/admin', 'refresh');
         }
-
+        chmod('upload/', 0777);
         $temp_dir = 'upload/'.$this->input->post('_tmp_');
         if (!is_dir($temp_dir)) {
             if(!mkdir($temp_dir, 0777, TRUE)){
