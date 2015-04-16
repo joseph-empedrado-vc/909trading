@@ -7,7 +7,7 @@
         <table id="tbl_ref_categories" class="display table table-bordered table-responsive" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+                <?php if (isset($list_type['categories']) && $list_type['categories'] == 'form_stock') { ?>
                     <th></th>
                     <th></th>
                 <?php } else { ?>
@@ -24,7 +24,7 @@
                 foreach($categories as $row):
             ?>
                     <tr id="<?=$row['ID'];?>">
-                        <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+                        <?php if (isset($list_type['categories']) && $list_type['categories'] == 'form_stock') { ?>
                             <td class="text-center"><span class="glyphicon glyphicon-plus clickable category-add" title="Add"></span> </td>
                             <td class="text-center"><span class="glyphicon glyphicon-arrow-left clickable category-use" title="Use"></span> </td>
                         <?php } else { ?>
@@ -46,7 +46,7 @@
 
 <script>
     $(document).ready(function() {
-        <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+        <?php if (isset($list_type['categories']) && $list_type['categories'] == 'form_stock') { ?>
 
         $('#tbl_ref_categories').DataTable({
             "columnDefs": [

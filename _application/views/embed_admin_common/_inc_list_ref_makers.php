@@ -8,7 +8,7 @@
         <table id="tbl_ref_makers" class="display table table-bordered table-responsive" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+                <?php if (isset($list_type['makers']) && $list_type['makers'] == 'form_stock') { ?>
                         <th></th>
                         <th></th>
                 <?php } else { ?>
@@ -25,7 +25,7 @@
                 foreach($makers as $row):
             ?>
                     <tr id="<?=$row['ID'];?>">
-                        <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+                        <?php if (isset($list_type['makers']) && $list_type['makers'] == 'form_stock') { ?>
                             <td class="text-center"><span class="glyphicon glyphicon-plus clickable maker-add" title="Add"></span> </td>
                             <td class="text-center"><span class="glyphicon glyphicon-arrow-left clickable maker-use" title="Use"></span> </td>
                         <?php } else { ?>
@@ -47,7 +47,7 @@
 
 <script>
     $(document).ready(function() {
-        <?php if (isset($ref_list_type) && $ref_list_type == 'for_stock_form') { ?>
+        <?php if (isset($list_type['makers']) && $list_type['makers'] == 'form_stock') { ?>
 
                 $('#tbl_ref_makers').DataTable({
                     "columnDefs": [

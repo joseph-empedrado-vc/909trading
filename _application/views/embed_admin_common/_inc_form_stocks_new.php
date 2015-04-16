@@ -9,7 +9,12 @@
             </div>
             <div class="panel-body">
 
-                <form id="form_stocks" action="<?=_index_url;?>form/validate_stocks" method="post" class="form-horizontal" role="form" novalidate="novalidate">
+                <form id="form_stocks"  enctype="multipart/form-data" action="<?=_index_url;?>form/validate_stocks" method="post" class="form-horizontal" role="form" novalidate="novalidate">
+
+
+                    <?php $this->load->view('embed_admin_common/_inc_form_upload_files'); ?>
+
+
 
                     <div id="FLD_maker_holder" class="form-group">
 

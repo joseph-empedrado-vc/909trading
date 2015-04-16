@@ -5218,9 +5218,11 @@ blockquote small {
     font-size: 12px;
     font-weight: 300;
 }
+
 table {
     font-size: 12px;
 }
+
 label, .control-label, .help-block, .checkbox, .radio {
     font-size: 15px;
     font-weight: normal;

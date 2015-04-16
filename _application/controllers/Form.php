@@ -248,24 +248,33 @@ class Form extends MY_Controller {
         $data['script']['css'][] = 'bootstrap.min.css';
         $data['script']['css'][] = 'bootstrap-yeti.css';
         $data['script']['css'][] = 'jquery.dataTables.min.css';
+        $data['script']['css'][] = 'jquery.fs.dropper.css';
         $data['script']['css'][] = 'style.css';
+
+
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
+        $data['script']['js-body'][] = 'jquery.fs.dropper.js';
 
-        $data['ref_list_type'] = 'for_stock_form';
+
+
         $this->load->model('References_model','ref');
         $this->load->model('stocks_model','stock');
 
         //load Makers / Manufacturers
+        $data['list_type']['makers'] = 'form_stock';
         $data['makers'] =  $this->ref->view_list('ref_makers');
         //load Categories
+        $data['list_type']['categories'] = 'form_stock';
         $data['categories'] =  $this->ref->view_list('ref_categories');
         //load Body Types
+        $data['list_type']['body_types'] = 'form_stock';
         $data['body_types'] =  $this->ref->view_list('ref_body_types');
         //load Stocks
+        $data['list_type']['stocks'] = 'form_stock';
         $data['stocks'] =  $this->stock->view_list('vw_stocks');
 
         $data['list_content'] = 'stocks';
@@ -281,6 +290,64 @@ class Form extends MY_Controller {
 
     private function _edit_stock(){
 
+    }
+
+    public function upload_photo(){
+
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin', 'refresh');
+        }
+
+        $temp_dir = 'upload/'.$this->input->post('_tmp_');
+        if (!is_dir($temp_dir)) {
+            mkdir($temp_dir, 0777, TRUE);
+
+        }
+
+        $config['upload_path']          = $temp_dir.'/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 2048;
+        $config['max_height']           = 1536;
+        $config['file_ext_tolower']     = true;
+        $config['encrypt_name']         = true;
+
+
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('file'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+
+            echo $this->upload->display_errors();
+
+
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+
+
+            $config_xs['image_library'] = 'gd2';
+            $config_xs['source_image'] = $this->upload->data('full_path');
+            $config_xs['new_image'] = $temp_dir.'/';
+            $config_xs['create_thumb'] = TRUE;
+            $config_xs['maintain_ratio'] = TRUE;
+            $config_xs['thumb_marker'] = '_xs';
+            $config_xs['width']         = 150;
+            $config_xs['height']        = 100;
+
+
+            $this->load->library('image_lib', $config_xs);
+
+            $this->image_lib->resize();
+
+            echo  $this->upload->data('raw_name').'_xs'.$this->upload->data('file_ext');
+
+
+        }
+        return;
     }
 
 

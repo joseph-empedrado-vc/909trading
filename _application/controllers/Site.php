@@ -215,7 +215,7 @@ class Site extends MY_Controller {
 		$config['newline'] = "\r\n";
 
 		$CI->email->initialize($config);
-
+		//sales@909trading.com   SubicSales100%
 		$CI->email->from('trading909@gmail.com', '909Trading Mailer Bot');
 		$list = array('info@909trading.com');
 		$CI->email->to($list);
