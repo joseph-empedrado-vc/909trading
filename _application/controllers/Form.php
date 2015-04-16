@@ -300,7 +300,9 @@ class Form extends MY_Controller {
 
         $temp_dir = 'upload/'.$this->input->post('_tmp_');
         if (!is_dir($temp_dir)) {
-            mkdir($temp_dir, 0777, TRUE);
+            if(!mkdir($temp_dir, 0777, TRUE)){
+                die('Failed to create folder.');
+            }
 
         }
 
