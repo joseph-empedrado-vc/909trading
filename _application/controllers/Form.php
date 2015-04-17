@@ -297,10 +297,10 @@ class Form extends MY_Controller {
         if(is_posted()===false){
             redirect(base_url().'index.php/admin', 'refresh');
         }
-        chmod('/var/www/909trading.com/upload', 0777);
-        $temp_dir = '/var/www/909trading.com/upload/'.$this->input->post('_tmp_');
+        //chmod('upload', 0777);
+        $temp_dir = 'upload/'.$this->input->post('_tmp_');
         if (!is_dir($temp_dir)) {
-            if(!mkdir($temp_dir, 0755)){
+            if(!mkdir($temp_dir)){
                 die('Failed to create folder.');
             }
 
