@@ -299,6 +299,7 @@ class Form extends MY_Controller {
         }
         //chmod('upload', 0777);
         $temp_dir = 'upload/'.$this->input->post('_tmp_');
+        $temp_dir = 'upload';
         if (!is_dir($temp_dir)) {
             if(!mkdir($temp_dir)){
                 die('Failed to create folder.');
