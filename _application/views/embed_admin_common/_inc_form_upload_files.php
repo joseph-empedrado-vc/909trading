@@ -102,7 +102,8 @@
 
             $target.find(".file").text(file.name);
             $target.find(".progress").remove();
-            $target.appendTo($filelist).append('<img src="'+_base_url+'upload/'+tf+'/'+response+'">');
+            $target.appendTo($filelist).append('<img src="'+_base_url+'upload/'+response+'">');
+            //$target.appendTo($filelist).append('<img src="'+_base_url+'upload/'+tf+'/'+response+'">');
         }
     }
 

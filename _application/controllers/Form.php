@@ -297,9 +297,9 @@ class Form extends MY_Controller {
         if(is_posted()===false){
             redirect(base_url().'index.php/admin', 'refresh');
         }
-        chmod('upload', 0777);
+        //chmod('upload', 0777);
         //$temp_dir = 'upload/'.$this->input->post('_tmp_');
-        $temp_dir = 'aaa';
+        $temp_dir = 'upload';
         if (!is_dir($temp_dir)) {
             if(!mkdir($temp_dir)){
                 die('Failed to create folder.');
