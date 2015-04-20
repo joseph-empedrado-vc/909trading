@@ -8,11 +8,12 @@
                 <h3 class="panel-title font-normal">Form</h3>
             </div>
             <div class="panel-body">
+                <?php $this->load->view('embed_admin_common/_inc_form_upload_files'); ?>
 
-                <form id="form_stocks"  enctype="multipart/form-data" action="<?=_index_url;?>form/validate_stocks" method="post" class="form-horizontal" role="form" novalidate="novalidate">
+                <form id="form_stocks" action="<?=_index_url;?>form/validate_stocks" method="post" class="form-horizontal" role="form" novalidate="novalidate">
 
 
-                    <?php $this->load->view('embed_admin_common/_inc_form_upload_files'); ?>
+
 
 
 
@@ -70,6 +71,7 @@
                     ?>
                     <div class="form-group">
                         <div class="col-md-6">
+                            <input type="hidden" name="_tmp_" value="x_<?=$temp_folder;?>" >
                             <input id="send" type="submit" class="btn btn-primary btn-block" value="Save" style="height: 40px;">
                         </div>
                         <div class="col-md-6">
@@ -118,6 +120,7 @@
             },
             submitHandler: function() {
                 var msgHtml =	'';
+                //alert(tf);
                 $("#form_stocks").submit();
             }
 

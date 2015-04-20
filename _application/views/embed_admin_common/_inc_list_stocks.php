@@ -38,7 +38,7 @@
 
                             <?php } ?>
                             <td>
-                                <img class="clickable"  src="<?=_assets_url;?>images/no_image_sm.png">
+                                <?=$row['ID'];?>
                             </td>
                             <td>
                                 No: <?=$row['ID'];?>
@@ -63,6 +63,34 @@
 </div>
 
 <script>
+    var fs = require('fs');
+
+    $scope.explorer=[];
+    $scope.openFile = function(){
+        $scope.explorer = [tree_entry($scope.path)];
+        get_folder($scope.path, $scope.explorer[0].children);
+    };
+
+    var filesystem = require("fs");
+    var _getAllFilesFromFolder = function(dir) {
+
+
+        var results = [];
+
+        filesystem.readdirSync(dir).forEach(function(file) {
+
+            file = dir+'/'+file;
+            var stat = filesystem.statSync(file);
+
+            if (stat && stat.isDirectory()) {
+                results = results.concat(_getAllFilesFromFolder(file))
+            } else results.push(file);
+
+        });
+
+        return results;
+
+    };
     $(document).ready(function() {
         $('#tbl_stocks').dataTable({
             "columnDefs": [
@@ -79,6 +107,15 @@
 
 
             ]
+            , "aoColumnDefs": [ {
+                "aTargets": [ 1 ],
+                "mData": "download_link",
+                "mRender": function ( data, type, full ) {
+                    //return '<a href="'+data+'">Download</a>';
+                    console.log(_getAllFilesFromFolder('upload/data'))
+                    return;
+                }
+            } ]
         });
     });
 </script>

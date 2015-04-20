@@ -281,6 +281,8 @@ class Form extends MY_Controller {
         $data['content'] = 'embed_admin/form';
         $data['embed_form'] = 'embed_admin_common/_inc_form_stocks_new';
 
+        $data['temp_folder'] = str_pad(rand(0,99999),5,STR_PAD_LEFT);
+
         $this->load->view('_core/template',$data);
 
 
@@ -323,7 +325,7 @@ class Form extends MY_Controller {
         {
             $error = array('error' => $this->upload->display_errors());
 
-            echo $this->upload->display_errors();
+            $return['msg'] = $this->upload->display_errors();
 
 
         }
@@ -345,11 +347,12 @@ class Form extends MY_Controller {
             $this->load->library('image_lib', $config_xs);
 
             $this->image_lib->resize();
-
-            echo  $this->upload->data('raw_name').'_xs'.$this->upload->data('file_ext');
+            $return['msg'] =  'ok';
+            $return['filename'] =  $this->upload->data('raw_name').'_xs'.$this->upload->data('file_ext');
 
 
         }
+        echo json_encode($return);
         return;
     }
 
@@ -450,6 +453,7 @@ class Form extends MY_Controller {
 
         if($add_data)
         {
+            rename('upload/'.$_POST['_tmp_'],'upload/'.$add_data);
             $this->session->set_flashdata('info_message',  '<p>Your data has been successfully saved</p>');
 
             redirect($this->input->post('_return'), 'refresh');

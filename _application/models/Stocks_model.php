@@ -36,7 +36,7 @@ class Stocks_model extends MY_Model {
 
         if($query){
 
-            $return = true;
+            $return =  $this->db->insert_id();
 
         }else{
             $return = false;

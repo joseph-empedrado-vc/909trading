@@ -32,7 +32,7 @@
 <script>
     var $filequeue,
         $filelist;
-    var tf = 'x_<?=str_pad(rand(0,99999),5,STR_PAD_LEFT);?>';
+    var tf = 'x_<?=$temp_folder;?>';
     $(document).ready(function() {
         $filequeue = $(".demo .filelist.queue");
         $filelist = $(".demo .filelist.complete");
@@ -78,37 +78,38 @@
     }
 
     function onFileStart(e, file) {
-        console.log("File Start");
 
         $filequeue.find("li[data-index=" + file.index + "]")
             .find(".progress").text("0%");
     }
 
     function onFileProgress(e, file, percent) {
-        console.log("File Progress");
+
 
         $filequeue.find("li[data-index=" + file.index + "]")
             .find(".progress").text(percent + "%");
     }
 
     function onFileComplete(e, file, response) {
-        console.log(response);
+        var response = JSON.parse(response);
 
-        if (response.trim() === "" || response.toLowerCase().indexOf("error") > -1) {
-            $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
-                .find(".progress").text(response.trim());
+
+
+        if (response.msg != 'ok') {
+            var $target = $filequeue.find("li[data-index=" + file.index + "]");
+                $target.addClass("error").find(".progress").remove();
+                $target.append(response.msg);
         } else {
             var $target = $filequeue.find("li[data-index=" + file.index + "]");
 
             $target.find(".file").text(file.name);
             $target.find(".progress").remove();
             //$target.appendTo($filelist).append('<img src="'+_base_url+'upload/'+response+'">');
-            $target.appendTo($filelist).append('<img src="'+_base_url+'upload/'+tf+'/'+response+'">');
+            $target.appendTo($filelist).append('<br/><img src="'+_base_url+'upload/'+tf+'/'+response.filename+'">');
         }
     }
 
     function onFileError(e, file, error) {
-        console.log("File Error");
 
         $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
             .find(".progress").text("Error: " + error);
