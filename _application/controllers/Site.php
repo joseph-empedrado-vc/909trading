@@ -59,6 +59,28 @@ class Site extends MY_Controller {
 		$this->load->view('_core/template',$data);
 	}
 
+    public function stocks(){
+
+
+        $data['page_title'][]     =   '909Trading - Contact Us';
+
+        $data['script']['css'][] = 'bootstrap.min.css';
+        $data['script']['css'][] = 'jquery.dataTables.min.css';
+        $data['script']['css'][] = 'bootstrap-yeti.min.css';
+        $data['script']['css'][] = 'style.css';
+
+        $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
+        $data['script']['js-head'][] = 'jquery.dataTables.js';
+        $data['script']['js-body'][] = 'bootstrap.min.js';
+        $data['script']['js-body'][] = 'jquery.validate.js';
+
+        $this->load->model('stocks_model','stock');
+        $data['stocks'] =  $this->stock->view_list('vw_stocks');
+        $data['content'] = 'site/stocks.php';
+        $this->load->view('_core/template',$data);
+
+    }
+
 	public function contact(){
 
 		$data['page_title'][]     =   '909Trading - Contact Us';
@@ -235,6 +257,8 @@ class Site extends MY_Controller {
 
 		return;
 	}
+
+
 
 
 }

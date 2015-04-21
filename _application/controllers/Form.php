@@ -343,7 +343,6 @@ class Form extends MY_Controller {
             $config_xs['width']         = 150;
             $config_xs['height']        = 100;
 
-
             $this->load->library('image_lib', $config_xs);
 
             $this->image_lib->resize();

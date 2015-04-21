@@ -91,8 +91,8 @@ $route['admin/(:any)'] = "system/$1";
 $route['admin'] = "system/index";
 
 
-$route['stocks/(:any)'] = "cart/$1";
-$route['stocks'] = "stocks/index";
+$route['stocks/(:any)'] = "site/stocks/$1";
+$route['stocks'] = "site/stocks";
 
 
 

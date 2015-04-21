@@ -334,6 +334,37 @@ if ( ! function_exists('is_signed_in')) {
     }
 }
 
+
+if ( ! function_exists('get_images')) {
+
+    function get_images($id,$type)
+    {
+        $CI =& get_instance();
+
+        if($type == 'thumb-1'){
+
+            $CI->load->helper('file');
+
+            $files = get_filenames('upload/' . $id);
+            foreach ($files as $r) {
+                $rFile = explode('.', $r);
+                if (substr($rFile[0], -3) == '_xs') {
+                    $thumb_files[] = $r;
+                }
+            }
+
+            if(count($thumb_files) > 0){
+                $return = $thumb_files[0];
+            }
+
+        }
+
+
+
+        return $return;
+    }
+}
+
 if ( ! function_exists('printR'))
 {
     function printR($array,$title=''){
