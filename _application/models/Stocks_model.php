@@ -16,18 +16,21 @@ class Stocks_model extends MY_Model {
         $CI =& get_instance();
         $user_id = $CI->session->userdata('signed_in');
         $data['created_by'] = $user_id;
-        $data['date_created'] =  date('d:m:Y h:i:A');
+
 
 
         $table  = $this->db->dbprefix($tbl);
-        $this->db->insert_string($table, $data);
+        //$this->db->insert_string($table, $data);
 
         if(isset($data['ID']) && $data['ID']  != ''){
             $where = "ID = ".$data['ID'];
+            $data['status'] = 'sold';
+            $data['date_updated'] =  date('d:m:Y h:i:A');
             $sql = $this->db->update_string($table, $data, $where);
 
         }else{
-            $data['status'] = 'active';
+            $data['status'] = 'available';
+            $data['date_created'] =  date('d:m:Y h:i:A');
             $sql = $this->db->insert_string($table, $data);
         }
 
@@ -35,8 +38,11 @@ class Stocks_model extends MY_Model {
         $query = $this->db->query($sql);
 
         if($query){
-
-            $return =  $this->db->insert_id();
+            if(isset($data['ID']) && $data['ID']  != '') {
+                $return = true;
+            }else {
+                $return = $this->db->insert_id();
+            }
 
         }else{
             $return = false;

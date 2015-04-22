@@ -31,7 +31,7 @@
                                     <span class="glyphicon glyphicon-arrow-left clickable stock-edit" title="Edit"></span>
                                     <br/>
 
-                                    <span class="glyphicon glyphicon-trash clickable stock-sold" title="Delete"></span>
+                                    <span class="glyphicon glyphicon-trash clickable stock-sold" title="Sold"></span>
                                 </td>
 
                             <?php } else { ?>
@@ -74,6 +74,16 @@
                 }
 
             ]
+        });
+
+        $('.stock-sold').click(function () {
+            var nTr = $(this).closest('tr');
+            var item_data =    {
+                FLD_ID: nTr.attr('ID'),
+                _return: '<?=_index_url.'admin/form/stocks/new';?>',
+                x__token: $('#x__token').val()
+            };
+            $.form('<?=_index_url;?>admin/form/stocks/sold',item_data).submit();
         });
     });
 </script>

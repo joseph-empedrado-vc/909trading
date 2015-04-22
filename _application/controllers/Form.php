@@ -52,7 +52,7 @@ class Form extends MY_Controller {
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
-        $data['script']['js-head'][] = 'jquery.form.js';
+        $data['script']['js-head'][] = 'jquery.custom-script.js';
 
         $data['script']['js-body'][] = 'bootstrap.min.js';
 
@@ -117,7 +117,7 @@ class Form extends MY_Controller {
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
-        $data['script']['js-head'][] = 'jquery.form.js';
+        $data['script']['js-head'][] = 'jquery.custom-script.js';
 
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
@@ -177,7 +177,7 @@ class Form extends MY_Controller {
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
-        $data['script']['js-head'][] = 'jquery.form.js';
+        $data['script']['js-head'][] = 'jquery.custom-script.js';
 
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
@@ -239,6 +239,9 @@ class Form extends MY_Controller {
             case"edit":
                 $this->_edit_stock();
             break;
+            case"sold":
+                $this->_sold_stock();
+            break;
         endswitch;
     }
 
@@ -255,6 +258,7 @@ class Form extends MY_Controller {
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
+        $data['script']['js-head'][] = 'jquery.custom-script.js';
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
         $data['script']['js-body'][] = 'jquery.fs.dropper.js';
@@ -293,6 +297,34 @@ class Form extends MY_Controller {
     private function _edit_stock(){
 
     }
+
+    private function _sold_stock(){
+        $post = do_post();
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+        }
+
+        $post = do_post();
+
+        $this->load->model('Stocks_model','stocks');
+
+        $update_data = $this->stocks->add_data($post,'stocks');
+
+        if($update_data)
+        {
+            $this->session->set_flashdata('info_message',  '<p>Your data has been successfully saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }else
+        {
+            $this->session->set_flashdata('error_message',  '<p>Data was not saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }
+
+        return;
+    }
+
 
     public function upload_photo(){
 
