@@ -263,10 +263,6 @@ class Site extends MY_Controller {
     public function send_email()
     {
 
-        if(!$this->is_posted()) { return; };
-
-
-        $message 		= $_POST['message'];
 
 
 
