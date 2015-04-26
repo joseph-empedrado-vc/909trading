@@ -315,6 +315,7 @@ Philippines<br/>
         {
             $return['error_code'] = 'mail';
         }
+        var_dump($return);
         echo json_encode($return);
 
         return;
