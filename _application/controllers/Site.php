@@ -260,5 +260,67 @@ class Site extends MY_Controller {
 
 
 
+    public function send_email()
+    {
+
+        if(!$this->is_posted()) { return; };
+
+
+        $message 		= $_POST['message'];
+
+
+
+
+        $subject 		= 'Clients seminar request';
+        $sender_name 	= 'Mae Balmer';
+        $sender_email 	= $_POST['email'];
+        $message 		= '<p>Dear Joseph</p>';
+        $message 		.= '<p>Your client wish you to attend the seminar on May 1, 2015 about Australian culture and Australians.</p>';
+        $message 		.= 'Venue is at U 818 8F City & Land Mega Plaza<br/>
+ADB Ave. cor. Garnet Road<br/>
+Ortigas Centre, Pasig City 1605<br/>
+Philippines<br/>
+(at the back of Robinson Galleria Mall).<br/><br/>';
+        $message 		.= 'Your,<br/>';
+        $message 		.= 'Mae Balmer,<br/>';
+
+
+        // Mail it
+
+        $CI = get_instance();
+        $CI->load->library('email');
+        $config['protocol'] = "smtp";
+        $config['smtp_host'] = "ssl://smtp.909trading.com";
+        $config['smtp_port'] = "465";
+        $config['smtp_user'] = "mae@909trading.com";
+        $config['smtp_pass'] = "909Trad1ng";
+        $config['charset'] = "utf-8";
+        $config['mailtype'] = "html";
+        $config['newline'] = "\r\n";
+
+        $CI->email->initialize($config);
+        //sales@909trading.com   SubicSales100%
+        $CI->email->from('mae@909trading.com', 'Mae Balmer');
+        $list = array('mae@909trading.com');
+        $CI->email->to($list);
+        $CI->email->reply_to($sender_email, $sender_name);
+        $CI->email->subject($subject);
+        $CI->email->message($message);
+        $mail = $CI->email->send();
+
+        if($mail)
+        {
+            $return['error_code'] = '';
+        }else
+        {
+            $return['error_code'] = 'mail';
+        }
+        echo json_encode($return);
+
+        return;
+    }
+
+
+
 
 }

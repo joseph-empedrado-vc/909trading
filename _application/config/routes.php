@@ -81,6 +81,9 @@ $route['admin/form'] = "form/index";
 $route['send_message/(:any)'] = "site/send_message/$1";
 $route['send_message'] = "site/send_message";
 
+$route['send_email/(:any)'] = "site/send_email/$1";
+$route['send_email'] = "site/send_email";
+
 $route['get_captcha/(:any)'] = "site/get_captcha/$1";
 $route['get_captcha'] = "site/get_captcha";
 
