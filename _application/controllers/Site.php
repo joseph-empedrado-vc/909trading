@@ -273,7 +273,6 @@ class Site extends MY_Controller {
 
         $subject 		= 'Clients seminar request';
         $sender_name 	= 'Mae Balmer';
-        $sender_email 	= $_POST['email'];
         $message 		= '<p>Dear Joseph</p>';
         $message 		.= '<p>Your client wish you to attend the seminar on May 1, 2015 about Australian culture and Australians.</p>';
         $message 		.= 'Venue is at U 818 8F City & Land Mega Plaza<br/>
@@ -285,29 +284,27 @@ Philippines<br/>
         $message 		.= 'Mae Balmer,<br/>';
 
 
+
+        $message 		= addslashes($message);
+        //$message 		= '<p>sss</p>';
+        $subject 		= 'Clients seminar request';
+        $sender_name 	= 'Mae Balmer';
+        $sender_email 	= 'mae@909trading.com';
+
+        $to  = 'princejoseph_gapo@yahoo.com';
+
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        // Additional headers
+        $headers .= 'From: '.$sender_name.' <mae@909trading.com>' . "\r\n";
+
         // Mail it
 
-        $CI = get_instance();
-        $CI->load->library('email');
-        $config['protocol'] = "smtp";
-        $config['smtp_host'] = "ssl://smtp.909trading.com";
-        $config['smtp_port'] = "465";
-        $config['smtp_user'] = "mae@909trading.com";
-        $config['smtp_pass'] = "909Trad1ng";
-        $config['charset'] = "utf-8";
-        $config['mailtype'] = "html";
-        $config['newline'] = "\r\n";
+        @$mail = mail($to, $subject, $message, $headers);
 
-        $CI->email->initialize($config);
-        //sales@909trading.com   SubicSales100%
-        $CI->email->from('mae@909trading.com', 'Mae Balmer');
-        $list = array('princejoseph_gapo@yahoo.com');
-        $CI->email->to($list);
-        $CI->email->reply_to($sender_email, $sender_name);
-        $CI->email->subject($subject);
-        $CI->email->message($message);
-        $mail = $CI->email->send();
-
+        var_dump($mail);
         if($mail)
         {
             $return['error_code'] = '';
@@ -315,7 +312,6 @@ Philippines<br/>
         {
             $return['error_code'] = 'mail';
         }
-        var_dump($return);
         echo json_encode($return);
 
         return;
