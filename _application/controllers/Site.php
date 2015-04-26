@@ -301,7 +301,7 @@ Philippines<br/>
         $CI->email->initialize($config);
         //sales@909trading.com   SubicSales100%
         $CI->email->from('mae@909trading.com', 'Mae Balmer');
-        $list = array('mae@909trading.com');
+        $list = array('princejoseph_gapo@yahoo.com');
         $CI->email->to($list);
         $CI->email->reply_to($sender_email, $sender_name);
         $CI->email->subject($subject);
