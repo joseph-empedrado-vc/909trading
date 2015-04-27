@@ -14,6 +14,7 @@
                             <th></th>
                             <th></th>
                             <th>Details</th>
+                            <th>Description</th>
                         <?php } else { ?>
                             <th></th>
                             <th>Details</th>
