@@ -263,10 +263,6 @@ class Site extends MY_Controller {
     public function send_email()
     {
 
-
-
-
-
         $subject 		= 'Clients seminar request';
         $sender_name 	= 'Mae Balmer';
         $message 		= '<p>Dear Joseph</p>';
@@ -285,7 +281,7 @@ Philippines<br/>
         //$message 		= '<p>sss</p>';
         $subject 		= 'Clients seminar request';
         $sender_name 	= 'Mae Balmer';
-        $sender_email 	= 'mae@909trading.com';
+        $sender_email 	= 'mae@virtualcoworker.com';
 
         $to  = 'princejoseph_gapo@yahoo.com';
 
@@ -294,7 +290,7 @@ Philippines<br/>
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
         // Additional headers
-        $headers .= 'From: '.$sender_name.' <mae@909trading.com>' . "\r\n";
+        $headers .= 'From: '.$sender_name.' <mae@virtualcoworker.com>' . "\r\n";
 
         // Mail it
 
