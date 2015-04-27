@@ -242,6 +242,9 @@ class Form extends MY_Controller {
             case"sold":
                 $this->_sold_stock();
             break;
+            case"delete":
+                $this->_delete_stock();
+                break;
         endswitch;
     }
 
@@ -313,6 +316,34 @@ class Form extends MY_Controller {
         if($update_data)
         {
             $this->session->set_flashdata('info_message',  '<p>Your data has been successfully saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }else
+        {
+            $this->session->set_flashdata('error_message',  '<p>Data was not saved</p>');
+
+            redirect($this->input->post('_return'), 'refresh');
+        }
+
+        return;
+    }
+
+
+    private function _delete_stock(){
+        $post = do_post();
+        if(is_posted()===false){
+            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+        }
+
+        $post = do_post();
+
+        $this->load->model('Stocks_model','stocks');
+
+        $update_data = $this->stocks->delete_data('stocks',$post['ID']);
+
+        if($update_data)
+        {
+            $this->session->set_flashdata('info_message',  '<p>Record has been successfully deleted.</p>');
 
             redirect($this->input->post('_return'), 'refresh');
         }else
