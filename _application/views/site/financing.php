@@ -33,7 +33,21 @@
                     </div>
                 </div>
             </div>
-            
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-4" style="padding-top: 30px;">
+                        <img src="<?=_assets_url;?>images/financing/asia_cathay_logo.png"  class="width-100" />
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="page-sub-title">Asian Cathay Finance & Leasing</h3>
+                        <h4>LOANS</h4>
+                        <p>Buy your first truck or add to your existing ones. Either way, don’t lose your clients to the competition just because you thought you couldn’t afford one.
+                            With their truck loan, you can buy your reconditioned truck units and be assured of the following .</p>
+                        <p><a href="http://asiancathay.com" target="_blank">http://asiancathay.com</a> </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 

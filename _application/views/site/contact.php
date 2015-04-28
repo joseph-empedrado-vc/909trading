@@ -9,7 +9,7 @@
                 <h4>Manila Office</h4>
                 <p><span class="glyphicon glyphicon-road"></span> : 222 Argonaut Highway</p>
                 <p>Subic Bay Freeport Zone 2222 Philippine</p>
-                <p><span class="glyphicon glyphicon-phone-alt"></span> : 63.920.917.4837</p>
+                <p><span class="glyphicon glyphicon-phone-alt"></span> : 63.928.949.6472</p>
 
             </div>
             <?php $this->load->view('embed_common/_inc_form_send_email'); ?>

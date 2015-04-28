@@ -16,7 +16,7 @@
                 <hr>
                 <h4><span class="page-sub-title">Vision</span> : Satisfactory and appreciation by the customers with good quality and affordable units.</h4>
                 <hr>
-                <h4><span class="page-sub-title">Industry</span> : Imported Dealer of used Japanese Heavy Equipments and Trucks.</h4>
+                <h4><span class="page-sub-title">Industry</span> : Imported Dealer of used Heavy Equipments, Trucks and other miscellaneous items.</h4>
 
             </div>
 

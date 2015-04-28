@@ -61,7 +61,7 @@
                         Philippines
                 </span>
                 <br/>
-                    <span class="glyphicon glyphicon-phone-alt"> </span> : +63 047 252-XXXX
+                    <span class="glyphicon glyphicon-phone-alt"> </span> : +63.928.949.6472
                 <br/>
                 Email : <a href="mailto:sales@909trading.com">sales@909trading.com</a>
 
