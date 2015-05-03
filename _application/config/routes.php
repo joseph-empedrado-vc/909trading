@@ -52,56 +52,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'site';
 
+$route['(:any)'] = "site/maintenance";
+
+//$route['home/(:any)'] = "site/$1";
+//$route['home'] = "site/index";
+//
+//$route['about-us/(:any)'] = "site/aboutus/$1";
+//$route['about-us'] = "site/aboutus";
+//
+//
+//$route['company-profile/(:any)'] = "site/company_profile/$1";
+//$route['company-profile'] = "site/company_profile";
+//
+//$route['contact-us/(:any)'] = "site/contact/$1";
+//$route['contact-us'] = "site/contact";
+//
+//$route['how-to-get-there/(:any)'] = "site/how_to_get_there/$1";
+//$route['how-to-get-there'] = "site/how_to_get_there";
+//
+//$route['financing/(:any)'] = "site/financing/$1";
+//$route['financing'] = "site/financing";
+//
+//$route['admin/form/(:any)'] = "form/$1";
+//$route['admin/form/(:any)/(:any)'] = "form/$1/$1";
+//$route['admin/form'] = "form/index";
+//
+//
+//$route['send_message/(:any)'] = "site/send_message/$1";
+//$route['send_message'] = "site/send_message";
+//
+//$route['send_email/(:any)'] = "site/send_email/$1";
+//$route['send_email'] = "site/send_email";
+//
+//$route['get_captcha/(:any)'] = "site/get_captcha/$1";
+//$route['get_captcha'] = "site/get_captcha";
+//
+//$route['validate_captcha/(:any)'] = "site/validate_captcha/$1";
+//$route['validate_captcha'] = "site/validate_captcha";
+//
+//$route['admin/(:any)'] = "system/$1";
+//$route['admin'] = "system/index";
+//
+//
+//$route['stocks/(:any)'] = "site/stocks/$1";
+//$route['stocks'] = "site/stocks";
+//
+//
+//
 
 
-$route['home/(:any)'] = "site/$1";
-$route['home'] = "site/index";
-
-$route['about-us/(:any)'] = "site/aboutus/$1";
-$route['about-us'] = "site/aboutus";
-
-
-$route['company-profile/(:any)'] = "site/company_profile/$1";
-$route['company-profile'] = "site/company_profile";
-
-$route['contact-us/(:any)'] = "site/contact/$1";
-$route['contact-us'] = "site/contact";
-
-$route['how-to-get-there/(:any)'] = "site/how_to_get_there/$1";
-$route['how-to-get-there'] = "site/how_to_get_there";
-
-$route['financing/(:any)'] = "site/financing/$1";
-$route['financing'] = "site/financing";
-
-$route['admin/form/(:any)'] = "form/$1";
-$route['admin/form/(:any)/(:any)'] = "form/$1/$1";
-$route['admin/form'] = "form/index";
-
-
-$route['send_message/(:any)'] = "site/send_message/$1";
-$route['send_message'] = "site/send_message";
-
-$route['send_email/(:any)'] = "site/send_email/$1";
-$route['send_email'] = "site/send_email";
-
-$route['get_captcha/(:any)'] = "site/get_captcha/$1";
-$route['get_captcha'] = "site/get_captcha";
-
-$route['validate_captcha/(:any)'] = "site/validate_captcha/$1";
-$route['validate_captcha'] = "site/validate_captcha";
-
-$route['admin/(:any)'] = "system/$1";
-$route['admin'] = "system/index";
-
-
-$route['stocks/(:any)'] = "site/stocks/$1";
-$route['stocks'] = "site/stocks";
-
-
-
-
-
-$route['(:any)'] = "site/$1";
+//$route['(:any)'] = "site/$1";
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

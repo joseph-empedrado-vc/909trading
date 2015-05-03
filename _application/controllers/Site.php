@@ -8,6 +8,11 @@ class Site extends MY_Controller {
 		$this->home();
 	}
 
+    public function maintenance(){
+        $this->load->view('admin/maintenance');
+    }
+
+
 	public function home()
 	{
 		$data['page_title'][]     =   '909Trading';
