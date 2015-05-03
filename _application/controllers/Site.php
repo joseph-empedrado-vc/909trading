@@ -5,7 +5,7 @@ class Site extends MY_Controller {
 
 	public function index()
 	{
-		$this->home();
+		$this->maintenance();
 	}
 
     public function maintenance(){
