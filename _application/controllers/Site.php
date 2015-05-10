@@ -236,11 +236,11 @@ class Site extends MY_Controller {
 
 		$CI = get_instance();
 		$CI->load->library('email');
-		$config['protocol'] = "smtp";
-		$config['smtp_host'] = "ssl://smtp.gmail.com";
-		$config['smtp_port'] = "465";
-		$config['smtp_user'] = "909trading@gmail.com";
-		$config['smtp_pass'] = "909Trad1ng";
+		$config['protocol'] = "mail";
+//		$config['smtp_host'] = "ssl://smtp.gmail.com";
+//		$config['smtp_port'] = "465";
+//		$config['smtp_user'] = "909trading@gmail.com";
+//		$config['smtp_pass'] = "909Trad1ng";
 		$config['charset'] = "utf-8";
 		$config['mailtype'] = "html";
 		$config['newline'] = "\r\n";
