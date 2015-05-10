@@ -261,6 +261,7 @@ class Site extends MY_Controller {
 		}else
 		{
 			$return['error_code'] = 'mail';
+            $return['error_message'] = $this->email->print_debugger();
 		}
 		echo json_encode($return);
 
