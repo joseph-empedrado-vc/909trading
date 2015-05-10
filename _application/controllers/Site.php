@@ -248,6 +248,7 @@ class Site extends MY_Controller {
 		$CI->email->initialize($config);
 		//sales@909trading.com   SubicSales100%
 		$CI->email->from('trading909@gmail.com', '909Trading Mailer Bot');
+        $this->email->reply_to($sender_email);
 		$list = array('sales@909trading.com');
 		$CI->email->to($list);
 		$CI->email->reply_to($sender_email, $sender_name);
