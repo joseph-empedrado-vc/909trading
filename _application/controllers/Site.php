@@ -79,8 +79,12 @@ class Site extends MY_Controller {
         $data['script']['js-body'][] = 'bootstrap.min.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
 
+
         $this->load->model('stocks_model','stock');
         $data['stocks'] =  $this->stock->view_list('vw_stocks');
+
+        $data['list_type']['stocks'] = 'list_stock';
+
         $data['content'] = 'site/stocks.php';
         $this->load->view('_core/template',$data);
 
@@ -215,7 +219,7 @@ class Site extends MY_Controller {
 	public function send_message()
 	{
 
-		if(!$this->is_posted()) { return; };
+		if(is_posted()===false) { return; };
 
 
 		$message 		= $_POST['message'];
