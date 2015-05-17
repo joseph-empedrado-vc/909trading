@@ -228,7 +228,7 @@ class Site extends MY_Controller {
             $i = 0;
             foreach($files as $k => $name){
                 $nameArr = explode('.',$name);
-                if(substr($nameArr[0],-3) != '_xs'){
+                if((substr($nameArr[0],-3) != '_xs') && ($nameArr[1] =='gif' || $nameArr[1] =='jpg' || $nameArr[1] =='png') ){
                     $files_large[$k] = $name;
                     $i++;
                 }
