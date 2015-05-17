@@ -234,9 +234,9 @@
                             }
 
                             if(index == 0) {
-                                 iHtml += '<div class="item active">';
+                                 iHtml += '<div class="item active - '+index+'">';
                             }else{
-                                 iHtml += '<div class="item">';
+                                 iHtml += '<div class="item - '+index+'">';
                             }
                             iHtml += '<img  style="width:100%;" src="' + _upload_url + nTr.attr('ID') + '\/' + val + '" alt="Stock">';
 
