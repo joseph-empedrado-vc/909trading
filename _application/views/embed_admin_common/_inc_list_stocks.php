@@ -224,6 +224,7 @@
                         $("#image-slide-carousel-indicators").html('');
                         $("#image-slide-carousel-inner").html('');
                         $('#modal-image-slide-label').html(_header);
+                        var iHtml ='';
                         $.each(data.files, function(index, val){
 
                             if(index == 0){
@@ -233,9 +234,9 @@
                             }
 
                             if(index == 0) {
-                                var iHtml = '<div class="item active">';
+                                 iHtml += '<div class="item active">';
                             }else{
-                                var iHtml = '<div class="item">';
+                                 iHtml += '<div class="item">';
                             }
                             iHtml += '<img  style="width:100%;" src="' + _upload_url + nTr.attr('ID') + '\/' + val + '" alt="Stock">';
 
@@ -245,16 +246,18 @@
                             iHtml += '<\/div>';
 
                             iHtml += '<\/div>';
-                            $('#image-slide-carousel-inner').append(iHtml);
+
 
                         });
+                        $('#image-slide-carousel-inner').html(iHtml);
+                        $('#modal-stock-slide').modal('show');
                     }
 
                 },
                 'json'
             );
 
-            $('#modal-stock-slide').modal('show');
+
         });
 
     });
