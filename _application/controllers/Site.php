@@ -215,6 +215,32 @@ class Site extends MY_Controller {
 		}
 	}
 
+    public function get_images(){
+
+        if(is_posted()===false) { return; };
+
+        $this->load->helper('directory');
+
+        $r_type = $this->input->post('r_type');
+
+        if($r_type == 'ajax-big'){
+            $files = directory_map('upload/'.$this->input->post('FLD_ID'));
+            $i = 0;
+            foreach($files as $k => $name){
+                $nameArr = explode('.',$name);
+                if(substr($nameArr[0],-3) != '_xs'){
+                    $files_large[$k] = $name;
+                    $i++;
+                }
+            }
+            $return['cnt'] = $i;
+            $return['files'] = $files_large;
+            $return = json_encode($return);
+            echo $return;
+        }
+
+    }
+
 
 	public function send_message()
 	{

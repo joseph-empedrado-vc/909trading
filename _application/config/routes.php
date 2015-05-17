@@ -98,7 +98,8 @@ $route['stocks/(:any)'] = "site/stocks/$1";
 $route['stocks'] = "site/stocks";
 
 
-
+$route['ajax/get_images/(:any)'] = "site/get_images/$1";
+$route['ajax/get_images'] = "site/get_images";
 
 
 $route['(:any)'] = "site/$1";

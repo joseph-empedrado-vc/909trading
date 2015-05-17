@@ -70,7 +70,7 @@
                             <?php if(@$list_type['stocks'] == 'list_stock') { ?>
 
                                 <td>
-                                    <img class="view-item-full" src="<?=_base_url.'upload/'.$row['ID'].'/'.get_images($row['ID'],'thumb-1');?>"
+                                    <img class="slide-show clickable" src="<?=_base_url.'upload/'.$row['ID'].'/'.get_images($row['ID'],'thumb-1');?>"
                                          title="<?=$row['maker_label'].' | '.$row['body_type_label'].' | '.$row['category_label'].' | '.$row['ID'];?> " />
                                 </td>
                                 <td>
@@ -131,6 +131,28 @@
     <?php $this->load->view('embed_common/_inc_form_inquiry_message_js'); ?>
 <?php } ?>
 
+<?php if(@$list_type['stocks'] == 'list_stock') { ?>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-stock-slide" tabindex="-1" role="dialog" aria-labelledby="modal-image-slide-label" aria-hidden="true">
+        <div class="modal-dialog" style="width: 80% !important;">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modal-image-slide-label">Stock</h4>
+                </div>
+                <div class="modal-body" id="image-slide_container">
+                    <?php $this->load->view('embed_common/_inc_image-slide'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php
+        echo create_csrf_token();
+    ?>
+<?php } ?>
+
 
 
 <script>
@@ -182,6 +204,58 @@
             $('#modal-inquiry').modal('show');
         });
 
+        // Stock Image Slide
+        $('.slide-show').click(function(){
+            var nTr = $(this).closest('tr');
+            var ttlArr = $(this).attr('title').split('|');
+            var _header = 'Stock No:'+ttlArr[3]+' '+ttlArr[0]+' '+ttlArr[1]+' '+ttlArr[2];
+            var item_data =    {
+                    FLD_ID: nTr.attr('ID'),
+                    r_type : 'ajax-big',
+                    x__token: $('#x__token').val()
+            };
+
+            $.post(
+                'ajax/get_images',
+                item_data,
+                function(data){
+
+                    if(data.cnt > 0){
+                        $("#image-slide-carousel-indicators").html('');
+                        $("#image-slide-carousel-inner").html('');
+                        $('#modal-image-slide-label').html(_header);
+                        $.each(data.files, function(index, val){
+
+                            if(index == 0){
+                                $("#image-slide-carousel-indicators").append('<li data-target="#image-slide-carousel-top" data-slide-to="0" class="active"><\/li>');
+                            }else{
+                                $("#image-slide-carousel-indicators").append('<li data-target="#image-slide-carousel-top" data-slide-to="'+index+'"><\/li>');
+                            }
+
+                            if(index == 0) {
+                                var iHtml = '<div class="item active">';
+                            }else{
+                                var iHtml = '<div class="item">';
+                            }
+                            iHtml += '<img  style="width:100%;" src="' + _upload_url + nTr.attr('ID') + '\/' + val + '" alt="Stock">';
+
+                            iHtml += '<div class="carousel-caption">';
+                            //iHtml +=    '<h2 class="font-normal text-uppercase font-white-black">'+ttlArr[0]+' '+ttlArr[1]+'<\/h2>';
+                            iHtml +=    '<p class="text-shadow">'+_header+'<\/p>';
+                            iHtml += '<\/div>';
+
+                            iHtml += '<\/div>';
+                            $('#image-slide-carousel-inner').append(iHtml);
+
+                        });
+                    }
+
+                },
+                'json'
+            );
+
+            $('#modal-stock-slide').modal('show');
+        });
 
     });
 </script>

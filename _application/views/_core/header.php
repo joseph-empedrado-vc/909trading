@@ -47,11 +47,13 @@ $_seo = do_meta_header_data();
 
     <script type="text/javascript">
         var _base_url = '<?=_base_url;?>';
+        var _upload_url = '<?=_upload_url;?>';
         var _index_url = '<?=_index_url;?>';
         var _url_1 = '<?=_url_1;?>';
         var _url_2 = '<?=_url_2;?>';
         var _url_3 = '<?=_url_3;?>';
         var seo_title = '<?php echo $_seo['title']; ?>';
+
 
     </script>
 
