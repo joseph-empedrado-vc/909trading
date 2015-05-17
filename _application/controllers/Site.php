@@ -76,7 +76,7 @@ class Site extends MY_Controller {
 
         $data['script']['js-head'][] = 'jquery-1.11.0.min.js';
         $data['script']['js-head'][] = 'jquery.dataTables.js';
-        $data['script']['js-body'][] = 'bootstrap.min.js';
+        $data['script']['js-body'][] = 'bootstrap.js';
         $data['script']['js-body'][] = 'jquery.validate.js';
 
 
