@@ -229,7 +229,7 @@ class Site extends MY_Controller {
             foreach($files as $k => $name){
                 $nameArr = explode('.',$name);
                 if((substr($nameArr[0],-3) != '_xs') && ($nameArr[1] =='gif' || $nameArr[1] =='jpg' || $nameArr[1] =='png') ){
-                    $files_large[$k] = $name;
+                    $files_large[$i] = $name;
                     $i++;
                 }
             }
