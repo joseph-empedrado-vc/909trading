@@ -107,10 +107,10 @@
                 var nTr = $(this).closest('tr');
                 var data_to_delete =    {
                                             FLD_ID: nTr.attr('ID'),
-                                            _return: '<?=_index_url.'admin/form/body_types';?>',
+                                            _return: '<?=_site_root_url.'admin/form/body_types';?>',
                                             x__token: $('#x__token').val()
                                         };
-                $.form('<?=_index_url;?>form/delete_body_types',data_to_delete).submit();
+                $.form('<?=_site_root_url;?>form/delete_body_types',data_to_delete).submit();
             });
         <?php } ?>
     });

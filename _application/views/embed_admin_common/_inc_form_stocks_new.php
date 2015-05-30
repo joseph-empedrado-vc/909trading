@@ -67,7 +67,7 @@
 
                     <?php
                     echo create_csrf_token();
-                    echo add_hidden_field('_return',_index_url.'admin/form/stocks/new');
+                    echo add_hidden_field('_return',_site_root_url.'admin/form/stocks/new');
                     ?>
                     <div class="form-group">
                         <div class="col-md-6">

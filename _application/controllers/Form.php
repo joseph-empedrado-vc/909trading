@@ -77,7 +77,7 @@ class Form extends MY_Controller {
     public function delete_makers (){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -137,7 +137,7 @@ class Form extends MY_Controller {
     public function delete_body_types (){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -199,7 +199,7 @@ class Form extends MY_Controller {
     public function delete_categories (){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -304,7 +304,7 @@ class Form extends MY_Controller {
     private function _sold_stock(){
         $post = do_post();
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+            redirect(base_url().'admin/form/stocks/new', 'refresh');
         }
 
         $post = do_post();
@@ -332,7 +332,7 @@ class Form extends MY_Controller {
     private function _delete_stock(){
         $post = do_post();
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+            redirect(base_url().'admin/form/stocks/new', 'refresh');
         }
 
         $post = do_post();
@@ -360,7 +360,7 @@ class Form extends MY_Controller {
     public function upload_photo(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
         //chmod('upload', 0777);
         $temp_dir = 'upload/'.$this->input->post('_tmp_');
@@ -422,7 +422,7 @@ class Form extends MY_Controller {
     public function validate_makers(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -449,7 +449,7 @@ class Form extends MY_Controller {
     public function validate_body_types(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -476,7 +476,7 @@ class Form extends MY_Controller {
     public function validate_categories(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();
@@ -504,7 +504,7 @@ class Form extends MY_Controller {
     public function validate_stocks(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin/form/stocks/new', 'refresh');
+            redirect(base_url().'admin/form/stocks/new', 'refresh');
         }
 
         $post = do_post();

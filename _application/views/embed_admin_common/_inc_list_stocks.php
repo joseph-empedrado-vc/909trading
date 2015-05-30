@@ -178,7 +178,7 @@
             var nTr = $(this).closest('tr');
             var item_data =    {
                 FLD_ID: nTr.attr('ID'),
-                _return: '<?=_index_url.'admin/form/stocks/new';?>',
+                _return: '<?=_site_root_url.'admin/form/stocks/new';?>',
                 x__token: $('#x__token').val()
             };
             $.form('<?=_index_url;?>admin/form/stocks/sold',item_data).submit();
@@ -188,7 +188,7 @@
             var nTr = $(this).closest('tr');
             var item_data =    {
                 FLD_ID: nTr.attr('ID'),
-                _return: '<?=_index_url.'admin/form/stocks/new';?>',
+                _return: '<?=_site_root_url.'admin/form/stocks/new';?>',
                 x__token: $('#x__token').val()
             };
             $.form('<?=_index_url;?>admin/form/stocks/delete',item_data).submit();

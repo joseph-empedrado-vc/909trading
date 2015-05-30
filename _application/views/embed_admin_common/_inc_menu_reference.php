@@ -11,13 +11,13 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <a href="<?=_index_url;?>admin/form/makers" type="button" class="btn btn-primary btn-block">Makers</a>
+                        <a href="<?=_site_root_url;?>admin/form/makers" type="button" class="btn btn-primary btn-block">Makers</a>
                     </div>
                     <div class="col-md-4">
-                        <a href="<?=_index_url;?>admin/form/categories" type="button" class="btn btn-primary btn-block">Categories</a>
+                        <a href="<?=_site_root_url;?>admin/form/categories" type="button" class="btn btn-primary btn-block">Categories</a>
                     </div>
                     <div class="col-md-4">
-                        <a href="<?=_index_url;?>admin/form/body_types" type="button" class="btn btn-primary btn-block">Body Types</a>
+                        <a href="<?=_site_root_url;?>admin/form/body_types" type="button" class="btn btn-primary btn-block">Body Types</a>
                     </div>
                 </div>
             </div>

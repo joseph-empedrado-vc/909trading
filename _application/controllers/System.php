@@ -28,7 +28,7 @@ class System extends MY_Controller {
 
             $this->load->view('_core/template',$data);
         }else{
-            redirect(base_url().'index.php/admin/login', 'refresh');
+            redirect(base_url().'admin/login', 'refresh');
         }
 
 
@@ -51,7 +51,7 @@ class System extends MY_Controller {
 
         if($this->session->userdata('signed_in'))
         {
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }else{
             $this->load->view('_core/template',$data);
         }
@@ -60,14 +60,14 @@ class System extends MY_Controller {
 
     public function logout(){
         session_destroy();
-        redirect(base_url().'index.php/admin', 'refresh');
+        redirect(base_url().'admin', 'refresh');
     }
 
 
     public function validate_login(){
 
         if(is_posted()===false){
-            redirect(base_url().'index.php/admin', 'refresh');
+            redirect(base_url().'admin', 'refresh');
         }
 
         $post = do_post();

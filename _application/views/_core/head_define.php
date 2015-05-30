@@ -11,7 +11,7 @@ define("_assets_url", base_url().'assets/', true);
 define("_upload_url", base_url().'upload/', true);
 define("_index_url", base_url().'index.php/', true);
 
-define("_site_root_url", base_url().'index.php/', true);
+define("_site_root_url", base_url(), true);
 
 $myhost = $_SERVER['HTTP_HOST'];
 define("_http_host", $myhost, true);

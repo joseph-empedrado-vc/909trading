@@ -29,7 +29,7 @@
                     </div>
                     <?php
                         echo create_csrf_token();
-                        echo add_hidden_field('_return',_index_url.'admin/form/makers');
+                        echo add_hidden_field('_return',_site_root_url.'admin/form/makers');
                         echo add_hidden_field('FLD_ID','');
                     ?>
                     <div class="form-group">
